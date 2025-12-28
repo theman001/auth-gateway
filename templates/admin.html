@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - {{.Title}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' };
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-gray-100 min-h-screen transition-colors">
+    <nav class="border-b border-gray-200 dark:border-gray-800 p-4 flex justify-between items-center bg-white dark:bg-[#252526]">
+        <h1 class="text-xl font-bold">{{.Title}} 관리 시스템</h1>
+        <button onclick="toggleTheme()" class="p-2 bg-gray-100 dark:bg-[#3c3c3c] rounded-full">🌓</button>
+    </nav>
+    <main class="max-w-6xl mx-auto p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        </main>
+</body>
+</html>
