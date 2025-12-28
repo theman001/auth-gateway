@@ -1,0 +1,14 @@
+server:
+  port: 3000
+  target_service_url: "http://127.0.0.1:8443" # 인증 후 연결할 로컬 서비스
+
+database:
+  user: "ADMIN"
+  password: "Devmin0149**"
+  connect_string: "authdb_high"
+  wallet_path: "/home/ubuntu/wallet"
+
+security:
+  session_expiry_hours: 24
+  # 특정 IP 대역만 관리자 페이지 접근 허용 시 사용 (선택 사항)
+  admin_allowed_ips: []
