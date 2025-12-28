@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" class="{{.Theme}}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}} - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
+</head>
+<body class="bg-gray-100 dark:bg-[#1e1e1e] flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md bg-white dark:bg-[#252526] rounded-xl shadow-xl p-8 border border-gray-200 dark:border-gray-800">
+        <h1 class="text-2xl font-bold text-center mb-8 dark:text-white">{{.Title}}</h1>
+        <form action="/login" method="POST" class="space-y-6">
+            <input type="text" name="userid" placeholder="ID" required class="w-full p-3 rounded bg-gray-50 dark:bg-[#3c3c3c] dark:text-white outline-none focus:ring-2 ring-blue-500">
+            <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded bg-gray-50 dark:bg-[#3c3c3c] dark:text-white outline-none focus:ring-2 ring-blue-500">
+            <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition-colors">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
