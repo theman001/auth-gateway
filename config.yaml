@@ -1,14 +1,27 @@
-server:
-  port: 3000
-  target_service_url: "http://127.0.0.1:8443" # 인증 후 연결할 로컬 서비스
+# ==========================================
+# Auth-Gateway 패키지 설정 파일
+# ==========================================
 
+# [1] 데이터베이스 설정 (Oracle Cloud ATP 연동)
 database:
-  user: "ADMIN"
-  password: "Devmin0149**"
-  connect_string: "authdb_high"
-  wallet_path: "/home/ubuntu/wallet"
+  user: ""           # 데이터베이스 접속 계정명 (기본값: "ADMIN")
+  password: ""       # OCI 콘솔에서 설정한 DB 관리자 암호
+  connect_string: "" # tnsnames.ora에 정의된 접속 이름 (예: "authdb_high")
+  wallet_path: ""    # DB 지갑 파일(.zip 해제본)이 위치한 절대 경로
 
+# [2] 게이트웨이 서버 설정
+server:
+  host: "0.0.0.0"    # 서버 바인딩 주소 (전체 허용 시 "0.0.0.0")
+  port: ""           # 인증 서버가 구동될 포트 번호 (예: "3000")
+  target_url: ""     # 인증 성공 후 전달할 로컬 서비스 주소 (예: "http://127.0.0.1:8443")
+
+# [3] 보안 및 세션 설정
 security:
-  session_expiry_hours: 24
-  # 특정 IP 대역만 관리자 페이지 접근 허용 시 사용 (선택 사항)
-  admin_allowed_ips: []
+  session_name: "auth_session"  # 브라우저에 저장될 쿠키 이름
+  session_expiry: ""            # 세션 유지 시간 (시간 단위, 예: "24h")
+  admin_ip_only: ""             # 관리자 페이지 접속 제한 IP (미설정 시 전체 허용)
+
+# [4] UI/UX 설정
+ui:
+  title: ""          # 로그인 페이지 상단에 표시될 서비스 제목
+  default_theme: "dark" # 초기 테마 설정 ("dark" 또는 "light")
